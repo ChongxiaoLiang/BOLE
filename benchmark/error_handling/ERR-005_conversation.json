@@ -1,0 +1,43 @@
+{
+  "id": "ERR-005",
+  "description": "Data format mismatch: HapMap data requesting GWAS",
+  "test_type": "format_mismatch",
+  "query": "I have HapMap (.hmp.txt) format genotype data for 1000 individuals. I want to run a GWAS analysis.",
+  "conversation_log": {
+    "job_id": "a1110eb295871054",
+    "conversation": [
+      {
+        "timestamp": "2026-05-18T16:40:31.995224",
+        "role": "system",
+        "content": "Session created: job_id=a1110eb295871054"
+      },
+      {
+        "timestamp": "2026-05-18T16:40:31.998742",
+        "role": "system",
+        "content": "WebSocket connected"
+      },
+      {
+        "timestamp": "2026-05-18T16:40:31.998927",
+        "role": "assistant",
+        "content": "Hello! I am **BOLE** , your Autonomous Genomic Breeding Analysis assistant. I provide end-to-end automated analysis and decision-making for your breeding data.\n"
+      },
+      {
+        "timestamp": "2026-05-18T16:40:38.340270",
+        "role": "assistant",
+        "content": "I see you have HapMap format genotype data and want to run a GWAS analysis. Let me help you get started.\n\nFirst, I need to understand your data setup a bit better. HapMap format (.hmp.txt) is not directly supported by PLINK or GCTA, so it will need to be converted first.\n\n**What data do you have available?**\n- Do you have a **phenotype file** (e.g., CSV/TSV with trait values)?\n- Do you have any **covariate files** (e.g., sex, age, breed)?\n- What is your **target trait** you want to analyze?\n\nAlso, since HapMap format needs conversion, I'll plan to:\n1. Convert your HapMap data to PLINK binary format (via `geno-import`)\n2. Run quality control (`geno-qc`)\n3. Perform GWAS analysis (either PLINK linear or GCTA MLMA)\n\nCould you tell me a bit more about your phenotype data and target trait? 🧬\n"
+      },
+      {
+        "timestamp": "2026-05-18T16:40:38.340680",
+        "role": "assistant",
+        "content": "{\"type\": \"state\", \"state\": {\"stage\": \"data_inventory\", \"args\": {}, \"user_args\": {}, \"system_args\": {}, \"files\": {}, \"inspection_cache\": {}, \"missing\": [], \"session_id\": \"a1110eb295871054\", \"debug\": {\"suspect_params\": []}, \"current_flow\": \"unknown\", \"user_note\": \"User has HapMap (.hmp.txt) genotype data for 1000 individuals. Wants GWAS analysis. Need to convert HapMap to PLINK format first.\", \"inventory_round\": 1}}\n"
+      }
+    ],
+    "total_messages": 5
+  },
+  "evaluation": {
+    "error_detected": true,
+    "correction_suggested": true,
+    "handled_correctly": true
+  },
+  "error": null
+}

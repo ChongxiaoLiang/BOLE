@@ -1,0 +1,92 @@
+{
+  "timestamp": "2026-05-13T16:38:06.571432",
+  "dataset": "pig_body_weight",
+  "dataset_info": {
+    "individuals": 2238,
+    "snps": 258662,
+    "genotype_prefix": "/workspace/test-file/testgwas/reference",
+    "phenotype_file": "/workspace/test-file/testgwas/GWAStestphenotype.fam"
+  },
+  "automated_results": [
+    {
+      "label": "QC",
+      "success": true,
+      "elapsed_sec": 0.73,
+      "return_code": 0
+    },
+    {
+      "label": "GWAS-Linear",
+      "success": true,
+      "elapsed_sec": 12.03,
+      "return_code": 0
+    },
+    {
+      "label": "GWAS-Plot",
+      "success": true,
+      "elapsed_sec": 19.5,
+      "return_code": 0
+    },
+    {
+      "label": "LD-Prune",
+      "success": true,
+      "elapsed_sec": 2.56,
+      "return_code": 0
+    },
+    {
+      "label": "ADMIXTURE-K2-5",
+      "success": true,
+      "elapsed_sec": 1525.54,
+      "return_code": 0,
+      "details": {
+        "K=2": "96.19s",
+        "K=3": "217.09s",
+        "K=4": "541.85s",
+        "K=5": "670.41s"
+      }
+    },
+    {
+      "label": "GCTA-GRM",
+      "success": true,
+      "elapsed_sec": 9.84,
+      "return_code": 0
+    },
+    {
+      "label": "GCTA-GREML",
+      "success": true,
+      "elapsed_sec": 1.88,
+      "return_code": 0
+    }
+  ],
+  "total_time_sec": 1572.08,
+  "total_time_min": 26.2,
+  "all_success": true,
+  "manual_baselines": {
+    "GWAS (PLINK linear, manual)": {
+      "time_min": 15,
+      "steps": 5,
+      "error_prone_steps": 2
+    },
+    "GWAS (GCTA MLMA, manual)": {
+      "time_min": 30,
+      "steps": 7,
+      "error_prone_steps": 3
+    },
+    "Heritability (GCTA GREML, manual)": {
+      "time_min": 25,
+      "steps": 6,
+      "error_prone_steps": 2
+    },
+    "Population Structure (ADMIXTURE, manual)": {
+      "time_min": 45,
+      "steps": 8,
+      "error_prone_steps": 3
+    },
+    "Genomic Selection (6 models, manual)": {
+      "time_min": 60,
+      "steps": 10,
+      "error_prone_steps": 4
+    }
+  },
+  "total_automated_runs": 7,
+  "successful_runs": 7
+}

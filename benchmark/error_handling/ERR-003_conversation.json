@@ -1,0 +1,48 @@
+{
+  "id": "ERR-003",
+  "description": "Invalid MAF threshold (0.8) in analysis request",
+  "test_type": "invalid_maf_exec",
+  "query": "I have PLINK binary genotype files (bed/bim/fam) for about 2200 pigs with 50000 SNPs, and a phenotype file with body weight. Please run GWAS with a MAF threshold of 0.8.",
+  "conversation_log": {
+    "job_id": "1e6bc2f652d53989",
+    "conversation": [
+      {
+        "timestamp": "2026-05-18T16:36:31.970896",
+        "role": "system",
+        "content": "Session created: job_id=1e6bc2f652d53989"
+      },
+      {
+        "timestamp": "2026-05-18T16:36:31.977294",
+        "role": "system",
+        "content": "WebSocket connected"
+      },
+      {
+        "timestamp": "2026-05-18T16:36:31.977510",
+        "role": "assistant",
+        "content": "Hello! I am **BOLE** , your Autonomous Genomic Breeding Analysis assistant. I provide end-to-end automated analysis and decision-making for your breeding data.\n"
+      },
+      {
+        "timestamp": "2026-05-18T16:36:39.069479",
+        "role": "assistant",
+        "content": "I see you want to run a GWAS on your pig dataset. Let me clarify a couple of things first.\n\n⚠️ **MAF threshold of 0.8 is not valid** — MAF (Minor Allele Frequency) must be between 0 and 0.5. A value of 0.8 would mean the minor allele is actually the major allele, which doesn't make sense. The default is 0.05. Would you like to use the default (0.05) or specify a different valid value (e.g., 0.1, 0.2)?\n\nAlso, I need to understand your data better:\n\n- You have PLINK binary files (`.bed`/`.bim`/`.fam`) — great, that's already in the right format.\n- You have a phenotype file with body weight — what format is it in? Does it have FID and IID columns matching your `.fam` file?\n\nCould you briefly describe your phenotype file format (e.g., column names, separator)?\n"
+      },
+      {
+        "timestamp": "2026-05-18T16:36:39.069953",
+        "role": "assistant",
+        "content": "{\"type\": \"state\", \"state\": {\"stage\": \"data_inventory\", \"args\": {\"maf\": 0.05}, \"user_args\": {}, \"system_args\": {\"maf\": 0.05}, \"files\": {}, \"inspection_cache\": {}, \"missing\": [], \"session_id\": \"1e6bc2f652d53989\", \"debug\": {\"suspect_params\": []}, \"current_flow\": \"plink-gwas-linear\", \"user_note\": \"GWAS for body weight in pigs (2200 individuals, 50000 SNPs). PLINK binary format already. MAF corrected to default 0.05. Need phenotype file format details.\", \"inventory_round\": 1}}\n"
+      },
+      {
+        "timestamp": "2026-05-18T16:38:31.978769",
+        "role": "system",
+        "content": "WebSocket closed: None None"
+      }
+    ],
+    "total_messages": 5
+  },
+  "evaluation": {
+    "error_detected": true,
+    "correction_suggested": true,
+    "handled_correctly": true
+  },
+  "error": null
+}

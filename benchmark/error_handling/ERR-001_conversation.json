@@ -1,0 +1,48 @@
+{
+  "id": "ERR-001",
+  "description": "Ambiguous intent + data description -> pipeline matching",
+  "test_type": "pipeline_matching",
+  "query": "I have PLINK binary genotype files (bed/bim/fam) for about 2200 pigs with 50000 SNPs, and a phenotype file with body weight measurements. Can you help me analyze this data?",
+  "conversation_log": {
+    "job_id": "493b9c6bf2a315d7",
+    "conversation": [
+      {
+        "timestamp": "2026-05-18T16:32:31.946591",
+        "role": "system",
+        "content": "Session created: job_id=493b9c6bf2a315d7"
+      },
+      {
+        "timestamp": "2026-05-18T16:32:31.952445",
+        "role": "system",
+        "content": "WebSocket connected"
+      },
+      {
+        "timestamp": "2026-05-18T16:32:31.952604",
+        "role": "assistant",
+        "content": "Hello! I am **BOLE** , your Autonomous Genomic Breeding Analysis assistant. I provide end-to-end automated analysis and decision-making for your breeding data.\n"
+      },
+      {
+        "timestamp": "2026-05-18T16:32:39.903185",
+        "role": "assistant",
+        "content": "Great, I can help you analyze your pig genotype and phenotype data! 🐷\n\nYou have PLINK binary files (`.bed`/`.bim`/`.fam`) with ~2200 pigs and 50K SNPs, plus a body weight phenotype file. That's a solid dataset for genomic analysis.\n\nWhat kind of analysis are you looking to do? Here are some common options:\n\n- **GWAS** – Find SNPs associated with body weight\n- **Genomic prediction / selection** – Predict breeding values using 6 models (BayesA/B/C/BRR/BL/GBLUP)\n- **Heritability estimation** – Estimate SNP-based heritability for body weight\n- **Population structure** – Run ADMIXTURE or PCA to understand population stratification\n- **QC + GWAS + visualization** – A full pipeline from quality control to Manhattan/QQ plots\n\nCould you tell me which direction you'd like to go? Or if you want multiple steps (e.g., QC first, then GWAS, then prediction), just let me know your overall goal! 🎯\n"
+      },
+      {
+        "timestamp": "2026-05-18T16:32:39.903645",
+        "role": "assistant",
+        "content": "{\"type\": \"state\", \"state\": {\"stage\": \"intent_detection\", \"args\": {}, \"user_args\": {}, \"system_args\": {}, \"files\": {}, \"inspection_cache\": {}, \"missing\": [], \"session_id\": \"493b9c6bf2a315d7\", \"debug\": {\"suspect_params\": []}, \"current_flow\": \"unknown\", \"user_note\": \"User has PLINK binary genotypes (bed/bim/fam) for ~2200 pigs with 50K SNPs and a body weight phenotype file. Need to clarify analysis goal.\"}}\n"
+      },
+      {
+        "timestamp": "2026-05-18T16:34:31.954080",
+        "role": "system",
+        "content": "WebSocket closed: None None"
+      }
+    ],
+    "total_messages": 5
+  },
+  "evaluation": {
+    "error_detected": true,
+    "correction_suggested": false,
+    "handled_correctly": true
+  },
+  "error": null
+}

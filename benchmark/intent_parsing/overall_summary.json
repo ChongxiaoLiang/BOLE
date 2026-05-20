@@ -1,0 +1,204 @@
+{
+  "intent_parsing": {
+    "overall_success_rate": "100.0%",
+    "total_tests": 100,
+    "passed": 100,
+    "failed": 0,
+    "by_category": {
+      "GWAS": "23/23 (100.0%)",
+      "QC": "14/14 (100.0%)",
+      "Heritability": "9/9 (100.0%)",
+      "Population Structure": "11/11 (100.0%)",
+      "Genomic Selection": "14/14 (100.0%)",
+      "LD": "8/8 (100.0%)",
+      "Import": "8/8 (100.0%)",
+      "Ambiguous": "13/13 (100.0%)"
+    },
+    "by_difficulty": {
+      "easy": "46/46 (100.0%)",
+      "medium": "37/37 (100.0%)",
+      "hard": "17/17 (100.0%)"
+    },
+    "avg_response_time": "3.76s",
+    "median_response_time": "3.75s",
+    "min_response_time": "1.93s",
+    "max_response_time": "5.92s"
+  },
+  "workflow_execution": {
+    "automated_results": [
+      {
+        "label": "QC",
+        "success": true,
+        "elapsed_sec": 0.73,
+        "return_code": 0
+      },
+      {
+        "label": "GWAS-Linear",
+        "success": true,
+        "elapsed_sec": 12.03,
+        "return_code": 0
+      },
+      {
+        "label": "GWAS-Plot",
+        "success": true,
+        "elapsed_sec": 19.5,
+        "return_code": 0
+      },
+      {
+        "label": "LD-Prune",
+        "success": true,
+        "elapsed_sec": 2.56,
+        "return_code": 0
+      },
+      {
+        "label": "ADMIXTURE-K2-5",
+        "success": true,
+        "elapsed_sec": 1525.54,
+        "return_code": 0,
+        "details": {
+          "K=2": "96.19s",
+          "K=3": "217.09s",
+          "K=4": "541.85s",
+          "K=5": "670.41s"
+        }
+      },
+      {
+        "label": "GCTA-GRM",
+        "success": true,
+        "elapsed_sec": 9.84,
+        "return_code": 0
+      },
+      {
+        "label": "GCTA-GREML",
+        "success": true,
+        "elapsed_sec": 1.88,
+        "return_code": 0
+      }
+    ],
+    "manual_baselines": {
+      "GWAS (PLINK linear, manual)": {
+        "time_min": 15,
+        "steps": 5,
+        "error_prone_steps": 2
+      },
+      "GWAS (GCTA MLMA, manual)": {
+        "time_min": 30,
+        "steps": 7,
+        "error_prone_steps": 3
+      },
+      "Heritability (GCTA GREML, manual)": {
+        "time_min": 25,
+        "steps": 6,
+        "error_prone_steps": 2
+      },
+      "Population Structure (ADMIXTURE, manual)": {
+        "time_min": 45,
+        "steps": 8,
+        "error_prone_steps": 3
+      },
+      "Genomic Selection (6 models, manual)": {
+        "time_min": 60,
+        "steps": 10,
+        "error_prone_steps": 4
+      }
+    },
+    "total_automated_runs": 7,
+    "successful_runs": 7
+  },
+  "error_handling": {
+    "error_handling_rate": "100.0%",
+    "total_tests": 5,
+    "handled_correctly": 5,
+    "details": [
+      {
+        "id": "ERR-001",
+        "description": "Missing required parameter (genotype file)",
+        "test_type": "missing_input",
+        "query": "Run GWAS analysis",
+        "detected_flow": "unknown",
+        "has_graceful_response": true,
+        "handled_correctly": true,
+        "response_time_sec": 5.15,
+        "error": null
+      },
+      {
+        "id": "ERR-002",
+        "description": "Invalid parameter value (MAF > 0.5)",
+        "test_type": "invalid_param",
+        "query": "Run GWAS with MAF threshold of 0.8",
+        "detected_flow": "unknown",
+        "has_graceful_response": true,
+        "handled_correctly": true,
+        "response_time_sec": 6.42,
+        "error": null
+      },
+      {
+        "id": "ERR-003",
+        "description": "Ambiguous request without clear intent",
+        "test_type": "ambiguous_intent",
+        "query": "Do some analysis on my data",
+        "detected_flow": "unknown",
+        "has_graceful_response": true,
+        "handled_correctly": true,
+        "response_time_sec": 5.91,
+        "error": null
+      },
+      {
+        "id": "ERR-004",
+        "description": "Non-existent file path",
+        "test_type": "invalid_path",
+        "query": "Run QC on /nonexistent/path/data",
+        "detected_flow": "geno-qc",
+        "has_graceful_response": true,
+        "handled_correctly": true,
+        "response_time_sec": 3.59,
+        "error": null
+      },
+      {
+        "id": "ERR-005",
+        "description": "Incompatible downstream parameters",
+        "test_type": "incompatible_params",
+        "query": "Run GWAS and then genomic selection with incompatible trait",
+        "detected_flow": "unknown",
+        "has_graceful_response": true,
+        "handled_correctly": true,
+        "response_time_sec": 5.61,
+        "error": null
+      }
+    ]
+  },
+  "reproducibility": {
+    "reproducibility_rate": "100.0%",
+    "total_tests": 3,
+    "consistent": 3,
+    "details": [
+      {
+        "query": "Perform GWAS analysis on my data",
+        "flows_detected": [
+          "plink-gwas-linear",
+          "plink-gwas-linear",
+          "plink-gwas-linear"
+        ],
+        "consistent": true
+      },
+      {
+        "query": "Estimate heritability using GCTA",
+        "flows_detected": [
+          "heritability-gcta-pipeline",
+          "heritability-gcta-pipeline",
+          "heritability-gcta-pipeline"
+        ],
+        "consistent": true
+      },
+      {
+        "query": "Run genomic selection with 6 models",
+        "flows_detected": [
+          "gs-6models",
+          "gs-6models",
+          "gs-6models"
+        ],
+        "consistent": true
+      }
+    ]
+  }
+}
